@@ -26,6 +26,13 @@ class DilithiumFallback:
     注意: これは教育目的の簡易実装です。本番環境では実際のポスト量子暗号ライブラリを使用してください。
     """
     
+    # Dilithiumのパラメータ
+    SECURITY_LEVEL = 2  # NIST Level 2
+    N = 256  # 多項式次数
+    Q = 8380417  # モジュラス
+    D = 13  # 切り捨てビット数
+    TAU = 39  # 署名のスパース性パラメータ
+    
     @staticmethod
     def keypair() -> Tuple[bytes, bytes]:
         """
@@ -37,17 +44,35 @@ class DilithiumFallback:
         # ランダムなシードを生成
         seed = os.urandom(32)
         
-        # シードからハッシュを生成
-        h = hashlib.sha512(seed)
-        hash_bytes = h.digest()
+        # シードからハッシュを生成して擬似的な多項式を作成
+        h1 = hashlib.sha512(seed + b"s1")
+        h2 = hashlib.sha512(seed + b"s2")
+        h3 = hashlib.sha512(seed + b"A")
         
-        # 前半を秘密鍵、後半を公開鍵として使用
-        private_key = hash_bytes[:32]
-        public_key = hash_bytes[32:]
+        # 秘密鍵と公開鍵のコンポーネントを生成
+        s1 = h1.digest()  # 秘密多項式1
+        s2 = h2.digest()  # 秘密多項式2
+        a = h3.digest()   # 公開パラメータA
+        
+        # 公開鍵t = A*s1 + s2 を計算（実際には複雑な多項式演算）
+        # ここでは簡易的にXORとハッシュで代用
+        t = bytes(x ^ y for x, y in zip(
+            hashlib.sha512(a + s1).digest(),
+            s2[:64]
+        ))
+        
+        # 秘密鍵と公開鍵をパッケージ化
+        private_key = seed + s1 + s2 + t[:64]  # seed + s1 + s2 + t
+        public_key = seed + t  # seed + t
         
         # 実際のDilithiumでは鍵のサイズが大きいため、サイズを調整
-        private_key = private_key * 4  # 128バイト
-        public_key = public_key * 4    # 128バイト
+        if len(private_key) < 1312:  # Dilithium2の秘密鍵サイズ
+            private_key = private_key * (1312 // len(private_key) + 1)
+            private_key = private_key[:1312]
+        
+        if len(public_key) < 1184:  # Dilithium2の公開鍵サイズ
+            public_key = public_key * (1184 // len(public_key) + 1)
+            public_key = public_key[:1184]
         
         return private_key, public_key
     
@@ -63,12 +88,40 @@ class DilithiumFallback:
         Returns:
             bytes: 署名
         """
-        # メッセージと秘密鍵を組み合わせてハッシュを生成
-        h = hashlib.sha512(private_key + message)
-        signature = h.digest()
+        # 秘密鍵からコンポーネントを抽出
+        seed = private_key[:32]
+        s1 = private_key[32:96]
+        s2 = private_key[96:160]
+        
+        # メッセージハッシュを計算
+        mu = hashlib.sha3_512(message).digest()
+        
+        # 署名生成のためのランダム値
+        rho = hashlib.sha256(seed + mu).digest()
+        
+        # ランダムマスクベクトルyを生成（実際には複雑な多項式サンプリング）
+        y = hashlib.sha512(rho + b"y").digest()
+        
+        # チャレンジcを生成
+        c = hashlib.sha3_256(mu + y).digest()
+        
+        # z = y + c*s1 を計算（実際には多項式演算）
+        # ここでは簡易的にXORとハッシュで代用
+        z = bytes(x ^ y for x, y in zip(
+            y[:64],
+            hashlib.sha512(c + s1).digest()[:64]
+        ))
+        
+        # h = c*s2 を計算（実際には多項式演算）
+        h = hashlib.sha512(c + s2).digest()[:64]
+        
+        # 署名を構築
+        signature = c + z + h
         
         # 実際のDilithiumでは署名のサイズが大きいため、サイズを調整
-        signature = signature * 4  # 256バイト
+        if len(signature) < 2420:  # Dilithium2の署名サイズ
+            signature = signature * (2420 // len(signature) + 1)
+            signature = signature[:2420]
         
         return signature
     
@@ -85,21 +138,51 @@ class DilithiumFallback:
         Returns:
             bool: 署名が有効な場合はTrue
         """
-        # 実際のDilithiumでは複雑な検証が行われますが、
-        # このフォールバック実装では簡易的な検証を行います
+        try:
+            # 署名と公開鍵からコンポーネントを抽出
+            if len(signature) < 32 + 64 + 64:
+                return False
+                
+            c = signature[:32]
+            z = signature[32:96]
+            h = signature[96:160]
+            
+            seed = public_key[:32]
+            t = public_key[32:96]
+            
+            # メッセージハッシュを計算
+            mu = hashlib.sha3_512(message).digest()
+            
+            # 公開パラメータAを再生成
+            a = hashlib.sha512(seed + b"A").digest()
+            
+            # Az - ct を計算（実際には多項式演算）
+            # ここでは簡易的にXORとハッシュで代用
+            az = hashlib.sha512(a + z).digest()[:64]
+            ct = hashlib.sha512(c + t).digest()[:64]
+            w_prime = bytes(x ^ y for x, y in zip(az, ct))
+            
+            # 再計算したチャレンジc'
+            c_prime = hashlib.sha3_256(mu + w_prime).digest()
+            
+            # c == c' かチェック（タイミング攻撃を防ぐため一定時間比較）
+            return DilithiumFallback._constant_time_compare(c, c_prime)
+            
+        except Exception as e:
+            logger.error(f"Verification error: {e}")
+            return False
+    
+    @staticmethod
+    def _constant_time_compare(a: bytes, b: bytes) -> bool:
+        """タイミング攻撃を防ぐための一定時間比較"""
+        if len(a) != len(b):
+            return False
         
-        # 公開鍵の最初の32バイトを取得
-        pk_prefix = public_key[:32]
+        result = 0
+        for x, y in zip(a, b):
+            result |= x ^ y
         
-        # メッセージと公開鍵を組み合わせてハッシュを生成
-        h = hashlib.sha512(pk_prefix + message)
-        expected_prefix = h.digest()[:32]
-        
-        # 署名の最初の32バイトと比較
-        signature_prefix = signature[:32]
-        
-        # 署名の一部が一致するかどうかを確認
-        return hashlib.sha256(expected_prefix).digest()[:16] == hashlib.sha256(signature_prefix).digest()[:16]
+        return result == 0
 
 
 class PostQuantumCrypto:

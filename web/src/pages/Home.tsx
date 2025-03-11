@@ -65,26 +65,33 @@ const Home = () => {
           }}
         />
         <Container maxWidth="md">
-          <Typography 
-            variant="h2" 
-            component="h1" 
-            gutterBottom
-            sx={{ 
-              fontWeight: 'bold',
-              textShadow: '0 2px 4px rgba(0,0,0,0.2)'
-            }}
+          <Box data-aos="fade-up" data-aos-duration="1000">
+            <Typography 
+              variant="h2" 
+              component="h1" 
+              gutterBottom
+              sx={{ 
+                fontWeight: 'bold',
+                textShadow: '0 2px 4px rgba(0,0,0,0.2)'
+              }}
+            >
+              PulseChain 環境同期型コンセンサス
+            </Typography>
+            <Typography 
+              variant="h5" 
+              component="h2" 
+              gutterBottom
+              sx={{ mb: 4, maxWidth: '800px' }}
+            >
+              自然環境と分散型データソースを活用した革新的なブロックチェーン技術
+            </Typography>
+          </Box>
+          <Box 
+            sx={{ mt: 4, display: 'flex', gap: 2, flexWrap: 'wrap' }}
+            data-aos="fade-up" 
+            data-aos-duration="1000"
+            data-aos-delay="200"
           >
-            PulseChain 環境同期型コンセンサス
-          </Typography>
-          <Typography 
-            variant="h5" 
-            component="h2" 
-            gutterBottom
-            sx={{ mb: 4, maxWidth: '800px' }}
-          >
-            自然環境と分散型データソースを活用した革新的なブロックチェーン技術
-          </Typography>
-          <Box sx={{ mt: 4, display: 'flex', gap: 2, flexWrap: 'wrap' }}>
             <Button 
               variant="contained" 
               color="secondary" 
@@ -96,7 +103,12 @@ const Home = () => {
                 fontWeight: 'bold',
                 px: 4,
                 py: 1.5,
-                borderRadius: 8
+                borderRadius: 8,
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-5px)',
+                  boxShadow: '0 10px 20px rgba(0,0,0,0.2)'
+                }
               }}
             >
               データ収集の詳細
@@ -113,10 +125,38 @@ const Home = () => {
                 fontWeight: 'bold',
                 px: 4,
                 py: 1.5,
-                borderRadius: 8
+                borderRadius: 8,
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-5px)',
+                  boxShadow: '0 10px 20px rgba(0,0,0,0.1)'
+                }
               }}
             >
               検証プロセスを見る
+            </Button>
+            <Button 
+              variant="contained" 
+              color="primary" 
+              size="large"
+              component={RouterLink}
+              to="/become-validator"
+              sx={{ 
+                backgroundColor: 'white',
+                color: theme.palette.primary.main,
+                fontWeight: 'bold',
+                px: 4,
+                py: 1.5,
+                borderRadius: 8,
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                '&:hover': {
+                  backgroundColor: 'white',
+                  transform: 'translateY(-5px)',
+                  boxShadow: '0 10px 20px rgba(0,0,0,0.2)'
+                }
+              }}
+            >
+              バリデーターになる
             </Button>
           </Box>
         </Container>
@@ -124,27 +164,40 @@ const Home = () => {
 
       {/* 概要セクション */}
       <Container maxWidth="lg" sx={{ py: 8 }}>
-        <Typography 
-          variant="h3" 
-          component="h2" 
-          gutterBottom
-          align="center"
-          sx={{ mb: 6, fontWeight: 'bold' }}
-        >
-          PulseChainの環境同期型コンセンサス
-        </Typography>
+        <Box data-aos="fade-up">
+          <Typography 
+            variant="h3" 
+            component="h2" 
+            gutterBottom
+            align="center"
+            sx={{ mb: 6, fontWeight: 'bold' }}
+          >
+            PulseChainの環境同期型コンセンサス
+          </Typography>
+          
+          <Typography variant="body1" paragraph sx={{ mb: 4, fontSize: '1.1rem' }}>
+            PulseChainは、従来のブロックチェーンの限界を超える革新的なレイヤー1プロトコルです。
+            環境同期型コンセンサスメカニズムは、自然環境や分散型データソースから収集したデータを活用し、
+            公平で安全なリーダー選出を実現します。
+          </Typography>
+        </Box>
         
-        <Typography variant="body1" paragraph sx={{ mb: 4, fontSize: '1.1rem' }}>
-          PulseChainは、従来のブロックチェーンの限界を超える革新的なレイヤー1プロトコルです。
-          環境同期型コンセンサスメカニズムは、自然環境や分散型データソースから収集したデータを活用し、
-          公平で安全なリーダー選出を実現します。
-        </Typography>
-        
-        <DataFlowDiagram steps={dataFlowSteps} />
+        <Box data-aos="fade-up" data-aos-delay="200">
+          <DataFlowDiagram steps={dataFlowSteps} />
+        </Box>
         
         <Grid container spacing={4} sx={{ mt: 4 }}>
-          <Grid item xs={12} md={4}>
-            <Card sx={{ height: '100%' }}>
+          <Grid item xs={12} md={4} data-aos="fade-up" data-aos-delay="300">
+            <Card 
+              sx={{ 
+                height: '100%',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-10px)',
+                  boxShadow: '0 12px 20px rgba(0,0,0,0.1)'
+                }
+              }}
+            >
               <CardMedia
                 component="div"
                 sx={{
@@ -154,7 +207,23 @@ const Home = () => {
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: 'white',
-                  fontSize: '3rem'
+                  fontSize: '3rem',
+                  overflow: 'hidden',
+                  position: 'relative',
+                  '&::after': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    background: 'radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%)',
+                    opacity: 0,
+                    transition: 'opacity 0.3s ease',
+                  },
+                  '&:hover::after': {
+                    opacity: 1,
+                  }
                 }}
               >
                 🌍
@@ -170,8 +239,17 @@ const Home = () => {
               </CardContent>
             </Card>
           </Grid>
-          <Grid item xs={12} md={4}>
-            <Card sx={{ height: '100%' }}>
+          <Grid item xs={12} md={4} data-aos="fade-up" data-aos-delay="400">
+            <Card 
+              sx={{ 
+                height: '100%',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-10px)',
+                  boxShadow: '0 12px 20px rgba(0,0,0,0.1)'
+                }
+              }}
+            >
               <CardMedia
                 component="div"
                 sx={{
@@ -181,7 +259,23 @@ const Home = () => {
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: 'white',
-                  fontSize: '3rem'
+                  fontSize: '3rem',
+                  overflow: 'hidden',
+                  position: 'relative',
+                  '&::after': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    background: 'radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%)',
+                    opacity: 0,
+                    transition: 'opacity 0.3s ease',
+                  },
+                  '&:hover::after': {
+                    opacity: 1,
+                  }
                 }}
               >
                 🔍
@@ -197,8 +291,17 @@ const Home = () => {
               </CardContent>
             </Card>
           </Grid>
-          <Grid item xs={12} md={4}>
-            <Card sx={{ height: '100%' }}>
+          <Grid item xs={12} md={4} data-aos="fade-up" data-aos-delay="500">
+            <Card 
+              sx={{ 
+                height: '100%',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-10px)',
+                  boxShadow: '0 12px 20px rgba(0,0,0,0.1)'
+                }
+              }}
+            >
               <CardMedia
                 component="div"
                 sx={{
@@ -208,7 +311,23 @@ const Home = () => {
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: 'white',
-                  fontSize: '3rem'
+                  fontSize: '3rem',
+                  overflow: 'hidden',
+                  position: 'relative',
+                  '&::after': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    background: 'radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%)',
+                    opacity: 0,
+                    transition: 'opacity 0.3s ease',
+                  },
+                  '&:hover::after': {
+                    opacity: 1,
+                  }
                 }}
               >
                 🛡️
@@ -231,17 +350,50 @@ const Home = () => {
       <Box 
         sx={{ 
           bgcolor: theme.palette.mode === 'dark' ? 'grey.900' : 'grey.100',
-          py: 6
+          py: 6,
+          position: 'relative',
+          overflow: 'hidden'
         }}
       >
+        <Box 
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            opacity: 0.05,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        />
         <Container maxWidth="md">
-          <Typography variant="h4" align="center" gutterBottom>
-            PulseChainの革新的な技術を体験しよう
-          </Typography>
-          <Typography variant="body1" align="center" paragraph sx={{ mb: 4 }}>
-            環境データの収集から検証プロセスまで、PulseChainの仕組みを詳しく見てみましょう。
-          </Typography>
-          <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+          <Box data-aos="fade-up">
+            <Typography 
+              variant="h4" 
+              align="center" 
+              gutterBottom
+              sx={{
+                fontWeight: 'bold',
+                background: theme.palette.mode === 'dark' 
+                  ? 'linear-gradient(135deg, #8ca0ff, #b68ae6)' 
+                  : 'linear-gradient(135deg, #6e8efb, #a777e3)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                textFillColor: 'transparent'
+              }}
+            >
+              PulseChainの革新的な技術を体験しよう
+            </Typography>
+            <Typography variant="body1" align="center" paragraph sx={{ mb: 4 }}>
+              環境データの収集から検証プロセスまで、PulseChainの仕組みを詳しく見てみましょう。
+            </Typography>
+          </Box>
+          <Box 
+            sx={{ display: 'flex', justifyContent: 'center', mt: 2, gap: 2, flexWrap: 'wrap' }}
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             <Button 
               variant="contained" 
               color="primary" 
@@ -252,10 +404,35 @@ const Home = () => {
                 fontWeight: 'bold',
                 px: 4,
                 py: 1.5,
-                borderRadius: 8
+                borderRadius: 8,
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-5px)',
+                  boxShadow: '0 10px 20px rgba(0,0,0,0.2)'
+                }
               }}
             >
               ライブデモを試す
+            </Button>
+            <Button 
+              variant="outlined" 
+              color="primary" 
+              size="large"
+              component={RouterLink}
+              to="/become-validator"
+              sx={{ 
+                fontWeight: 'bold',
+                px: 4,
+                py: 1.5,
+                borderRadius: 8,
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-5px)',
+                  boxShadow: '0 10px 20px rgba(0,0,0,0.1)'
+                }
+              }}
+            >
+              バリデーターになる
             </Button>
           </Box>
         </Container>

@@ -1,12 +1,17 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import DataCollection from './pages/DataCollection';
 import VerificationProcess from './pages/VerificationProcess';
 import LiveDemo from './pages/LiveDemo';
+import BecomeValidator from './pages/BecomeValidator';
+import Roadmap from './pages/Roadmap';
+import NetworkStats from './pages/NetworkStats';
+import 'aos/dist/aos.css';
+import AOS from 'aos';
 import './App.css';
 
 // カスタムテーマの作成
@@ -97,6 +102,31 @@ const darkTheme = createTheme({
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 
+  useEffect(() => {
+    // AOSの初期化
+    AOS.init({
+      duration: 800,
+      once: false,
+      mirror: true,
+      offset: 100,
+    });
+    
+    // システムのダークモード設定を検出
+    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setDarkMode(prefersDarkMode);
+    
+    // スクロール時にAOSを更新
+    window.addEventListener('scroll', () => {
+      AOS.refresh();
+    });
+    
+    return () => {
+      window.removeEventListener('scroll', () => {
+        AOS.refresh();
+      });
+    };
+  }, []);
+
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
@@ -111,6 +141,9 @@ function App() {
           <Route path="/data-collection" element={<DataCollection />} />
           <Route path="/verification-process" element={<VerificationProcess />} />
           <Route path="/live-demo" element={<LiveDemo />} />
+          <Route path="/become-validator" element={<BecomeValidator />} />
+          <Route path="/roadmap" element={<Roadmap />} />
+          <Route path="/network-stats" element={<NetworkStats />} />
         </Routes>
         <Footer />
       </Router>

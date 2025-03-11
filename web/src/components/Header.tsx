@@ -37,7 +37,10 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
     { name: 'ホーム', path: '/' },
     { name: 'データ収集', path: '/data-collection' },
     { name: '検証プロセス', path: '/verification-process' },
-    { name: 'ライブデモ', path: '/live-demo' }
+    { name: 'ライブデモ', path: '/live-demo' },
+    { name: 'ネットワーク統計', path: '/network-stats' },
+    { name: 'ロードマップ', path: '/roadmap' },
+    { name: 'バリデーターになる', path: '/become-validator' }
   ];
 
   const drawer = (

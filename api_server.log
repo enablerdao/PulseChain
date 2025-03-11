@@ -1,0 +1,19 @@
+2025-03-11 15:12:55,822 - api_server - INFO - データベースを初期化しました
+2025-03-11 15:12:55,825 - api_server - INFO - 初期データを生成しました
+2025-03-11 15:12:55,829 - api_server - INFO - データを更新しました
+INFO:     Started server process [2580]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:52964 (Press CTRL+C to quit)
+2025-03-11 15:13:25,845 - api_server - INFO - データを更新しました
+2025-03-11 15:13:55,860 - api_server - INFO - データを更新しました
+2025-03-11 15:14:25,874 - api_server - INFO - データを更新しました
+INFO:     172.17.0.1:63358 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.17.0.1:64412 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.17.0.1:64412 - "GET / HTTP/1.1" 404 Not Found
+2025-03-11 15:14:55,893 - api_server - INFO - データを更新しました
+INFO:     127.0.0.1:57758 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57766 - "GET /api/stats HTTP/1.1" 200 OK
+2025-03-11 15:15:25,927 - api_server - INFO - データを更新しました
+2025-03-11 15:15:55,952 - api_server - INFO - データを更新しました
+2025-03-11 15:16:25,978 - api_server - INFO - データを更新しました
