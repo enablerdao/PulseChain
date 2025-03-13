@@ -1,0 +1,119 @@
+/* 共通スタイル */
+:root {
+    --novaledger-color: #6366f1; /* indigo */
+    --nexacore-color: #3b82f6; /* blue */
+    --optimachain-color: #10b981; /* green */
+    --neurachain-color: #8b5cf6; /* purple */
+    --pulsechain-color: #ef4444; /* red */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+.transition {
+    transition: all 0.3s ease;
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+/* ロードマップスタイル */
+.roadmap-item {
+    position: relative;
+    padding-bottom: 40px;
+}
+
+.roadmap-item:nth-child(odd) {
+    padding-right: 50%;
+    text-align: right;
+}
+
+.roadmap-item:nth-child(even) {
+    padding-left: 50%;
+    text-align: left;
+}
+
+.roadmap-item:nth-child(odd)::before {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 15px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    transform: translateX(50%);
+    z-index: 1;
+}
+
+.roadmap-item:nth-child(even)::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 15px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 768px) {
+    .roadmap-item:nth-child(odd),
+    .roadmap-item:nth-child(even) {
+        padding-left: 30px;
+        padding-right: 0;
+        text-align: left;
+    }
+    
+    .roadmap-item:nth-child(odd)::before,
+    .roadmap-item:nth-child(even)::before {
+        left: -10px;
+        right: auto;
+        transform: translateX(-50%);
+    }
+}
+
+/* フィーチャーカード */
+.feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* ボタンスタイル */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* スクロールアニメーション */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}

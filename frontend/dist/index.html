@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PulseChain - 環境同期型ブロックチェーン</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+  <link rel="stylesheet" crossorigin href="/assets/main-BVW2f5Gz.css">
+</head>
+<body class="bg-gray-900 text-white font-inter">
+    <!-- ヘッダー -->
+    <header class="bg-gray-800 shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20width='200'%20height='50'%20viewBox='0%200%20200%2050'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3crect%20width='50'%20height='50'%20rx='10'%20fill='%23EF4444'/%3e%3cpath%20d='M15%2025H35'%20stroke='white'%20stroke-width='4'%20stroke-linecap='round'/%3e%3cpath%20d='M25%2015V35'%20stroke='white'%20stroke-width='4'%20stroke-linecap='round'/%3e%3cpath%20d='M15%2015L35%2035'%20stroke='white'%20stroke-width='4'%20stroke-linecap='round'/%3e%3cpath%20d='M15%2035L35%2015'%20stroke='white'%20stroke-width='4'%20stroke-linecap='round'/%3e%3cpath%20d='M60%2020H75C77.7614%2020%2080%2022.2386%2080%2025V30C80%2032.7614%2077.7614%2035%2075%2035H60V20Z'%20fill='white'/%3e%3cpath%20d='M85%2020H100V25H90V26H100V35H85V20Z'%20fill='white'/%3e%3cpath%20d='M105%2020H120V25H110V26H120V35H105V20Z'%20fill='white'/%3e%3cpath%20d='M125%2020H140V25H130V26H140V35H125V30H135V29H125V20Z'%20fill='white'/%3e%3cpath%20d='M145%2020H160V25H150V26H160V35H145V20Z'%20fill='white'/%3e%3cpath%20d='M165%2020H180C182.761%2020%20185%2022.2386%20185%2025V30C185%2032.7614%20182.761%2035%20180%2035H165V20Z'%20fill='white'/%3e%3cpath%20d='M190%2020H195V35H190V20Z'%20fill='white'/%3e%3c/svg%3e" alt="PulseChain Logo" class="h-10">
+                    <h1 class="ml-4 text-2xl font-bold">PulseChain</h1>
+                </div>
+                <nav>
+                    <ul class="flex space-x-6">
+                        <li><a href="#features" class="hover:text-red-400 transition">特徴</a></li>
+                        <li><a href="#technology" class="hover:text-red-400 transition">技術</a></li>
+                        <li><a href="#roadmap" class="hover:text-red-400 transition">ロードマップ</a></li>
+                        <li><a href="#docs" class="hover:text-red-400 transition">ドキュメント</a></li>
+                        <li><a href="#community" class="hover:text-red-400 transition">コミュニティ</a></li>
+                    </ul>
+                </nav>
+                <div class="flex space-x-4">
+                    <select class="bg-gray-700 rounded px-2 py-1">
+                        <option value="ja">日本語</option>
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                        <option value="ko">한국어</option>
+                    </select>
+                    <a href="https://github.com/enablerdao/PulseChain" class="bg-red-600 hover:bg-red-500 px-4 py-2 rounded transition">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="py-20 bg-gradient-to-br from-gray-800 to-gray-900">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-5xl font-bold mb-6">環境同期型ブロックチェーン</h2>
+            <p class="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">PulseChainは、環境データを活用した革新的なProof of History（PoH）コンセンサスと「ハートビート」プロトコルを組み合わせた次世代ブロックチェーンプラットフォームです。ミリ秒単位の超高速合意形成を実現します。</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#features" class="bg-red-600 hover:bg-red-500 px-6 py-3 rounded-lg font-medium transition">詳細を見る</a>
+                <a href="https://github.com/enablerdao/PulseChain" class="bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-lg font-medium transition">GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特徴セクション -->
+    <section id="features" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-12 text-center">主な特徴</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-card">
+                    <div class="text-red-400 text-4xl mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">環境同期型PoH</h3>
+                    <p class="text-gray-300">Solanaのプルーフ・オブ・ヒストリー（PoH）を拡張し、環境データを統合することで、より効率的で安全なコンセンサスを実現します。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="text-red-400 text-4xl mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">ハートビートプロトコル</h3>
+                    <p class="text-gray-300">ノード間の継続的な通信を確立し、ネットワークの健全性と同期を維持する革新的なP2Pプロトコルです。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="text-red-400 text-4xl mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">超高速トランザクション</h3>
+                    <p class="text-gray-300">革新的なコンセンサスとネットワークアーキテクチャにより、ミリ秒単位のトランザクション確定を実現します。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="text-red-400 text-4xl mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">地域ベースのシャーディング</h3>
+                    <p class="text-gray-300">地理的な近接性に基づいてノードをグループ化し、レイテンシーを最小化しながらスケーラビリティを向上させます。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="text-red-400 text-4xl mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">高度な攻撃耐性</h3>
+                    <p class="text-gray-300">環境データとハートビートプロトコルを活用して、Sybil攻撃や51%攻撃などの一般的な脅威に対する耐性を強化します。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="text-red-400 text-4xl mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">マイクロチェーンアーキテクチャ</h3>
+                    <p class="text-gray-300">特定の用途に最適化された小規模なチェーンを作成し、メインチェーンと安全に統合することができます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技術セクション -->
+    <section id="technology" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-12 text-center">技術詳細</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">環境同期型PoHコンセンサス</h3>
+                    <p class="text-gray-300 mb-6">PulseChainの環境同期型Proof of History（PoH）コンセンサスは、SolanaのオリジナルのPoHメカニズムを拡張し、環境データを統合した革新的なアプローチです。このシステムでは、時間の経過を暗号学的に証明するだけでなく、市場データ、気象情報、ネットワーク状態などの環境要因も考慮します。これらのデータは、PoHシーケンスの生成に影響を与え、予測可能性を低下させることで、攻撃者が将来のシーケンスを予測することを困難にします。さらに、環境データの統合により、ネットワークの状態に応じて動的にパラメータを調整し、常に最適なパフォーマンスを維持することが可能になります。</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">ハートビートプロトコル</h3>
+                    <p class="text-gray-300 mb-6">PulseChainのハートビートプロトコルは、ノード間の継続的な通信を確立し、ネットワークの健全性と同期を維持するための革新的なP2Pメカニズムです。各ノードは定期的に「ハートビート」信号を近隣ノードに送信し、自身の状態、処理中のトランザクション、環境データなどの情報を共有します。これにより、ノードは常にネットワークの状態を把握し、異常を迅速に検出することができます。また、ハートビート信号には暗号学的な証明が含まれており、ノードの正当性を確認することができます。このプロトコルにより、ネットワークの分断やSybil攻撃などの脅威に対する耐性が大幅に向上し、より安全で効率的なコンセンサスが実現します。</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">地域ベースのシャーディング</h3>
+                    <p class="text-gray-300 mb-6">PulseChainの地域ベースのシャーディングシステムは、地理的な近接性に基づいてノードをグループ化することで、レイテンシーを最小化しながらスケーラビリティを向上させます。各地域は独自のサブネットワーク（シャード）として機能し、その地域内のトランザクションを優先的に処理します。地域間の通信は、特別な「ブリッジノード」を通じて効率的に行われ、グローバルな一貫性を維持します。このアプローチにより、ユーザーは地理的に近いノードと優先的に通信することができ、トランザクションの確認時間が大幅に短縮されます。さらに、地域ごとに最適化されたパラメータを設定することで、各地域の特性に合わせたパフォーマンスチューニングが可能になります。</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">マイクロチェーンアーキテクチャ</h3>
+                    <p class="text-gray-300 mb-6">PulseChainのマイクロチェーンアーキテクチャは、特定の用途に最適化された小規模なチェーンを作成し、メインチェーンと安全に統合することを可能にします。各マイクロチェーンは独自のコンセンサスルールやパラメータを持つことができ、特定のアプリケーションやユースケースに合わせてカスタマイズできます。マイクロチェーンとメインチェーン間の通信は、クロスチェーンブリッジを通じて行われ、資産やデータの安全な移動が保証されます。このアーキテクチャにより、メインチェーンの負荷を軽減しながら、特定の用途に特化した高性能なソリューションを提供することができます。例えば、高頻度取引、IoTデータ処理、ゲーム専用チェーンなど、様々な用途に最適化されたマイクロチェーンを展開することが可能です。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ロードマップセクション -->
+    <section id="roadmap" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-12 text-center">開発ロードマップ</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <!-- ロードマップの縦線 -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-red-600"></div>
+                    
+                    <!-- ロードマップアイテム -->
+                    <div class="roadmap-item">
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                            <h3 class="text-xl font-bold mb-2">フェーズ1: コア開発</h3>
+                            <p class="text-gray-400 mb-2">2025年Q1-Q2</p>
+                            <p class="text-gray-300">環境同期型PoHコンセンサスの実装、ハートビートプロトコルの開発、基本的なブロックチェーン機能の実装</p>
+                        </div>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                            <h3 class="text-xl font-bold mb-2">フェーズ2: 地域シャーディング</h3>
+                            <p class="text-gray-400 mb-2">2025年Q3-Q4</p>
+                            <p class="text-gray-300">地域ベースのシャーディングシステムの実装、クロスリージョン通信プロトコルの開発、初期テストネットの立ち上げ</p>
+                        </div>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                            <h3 class="text-xl font-bold mb-2">フェーズ3: マイクロチェーン</h3>
+                            <p class="text-gray-400 mb-2">2026年Q1-Q2</p>
+                            <p class="text-gray-300">マイクロチェーンアーキテクチャの実装、クロスチェーンブリッジの開発、開発者ツールの提供</p>
+                        </div>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                            <h3 class="text-xl font-bold mb-2">フェーズ4: パブリックテストネット</h3>
+                            <p class="text-gray-400 mb-2">2026年Q3-Q4</p>
+                            <p class="text-gray-300">公開テストネットのローンチ、バグ修正と最適化、セキュリティ監査の実施</p>
+                        </div>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                            <h3 class="text-xl font-bold mb-2">フェーズ5: メインネットとエコシステム</h3>
+                            <p class="text-gray-400 mb-2">2027年以降</p>
+                            <p class="text-gray-300">メインネットのローンチ、エコシステムの拡大、エンタープライズ向けソリューションの開発</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ドキュメントセクション -->
+    <section id="docs" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-8">ドキュメント</h2>
+            <p class="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">PulseChainの詳細な技術ドキュメントを確認して、プラットフォームの可能性を探求してください。</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="bg-red-600 hover:bg-red-500 px-6 py-3 rounded-lg font-medium transition">技術ドキュメント</a>
+                <a href="#" class="bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-lg font-medium transition">開発者ガイド</a>
+                <a href="#" class="bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-lg font-medium transition">APIリファレンス</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- コミュニティセクション -->
+    <section id="community" class="py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-8">コミュニティに参加</h2>
+            <p class="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">PulseChainの成長するコミュニティに参加して、最新情報を入手し、開発に貢献しましょう。</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded-lg font-medium transition">Twitter</a>
+                <a href="#" class="bg-purple-600 hover:bg-purple-500 px-6 py-3 rounded-lg font-medium transition">Discord</a>
+                <a href="#" class="bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-lg font-medium transition">Telegram</a>
+                <a href="#" class="bg-red-600 hover:bg-red-500 px-6 py-3 rounded-lg font-medium transition">YouTube</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター（共通） -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">株式会社イネブラのブロックチェーンプロジェクト</h3>
+                    <ul class="space-y-2">
+                        <li><a href="https://novaledger.enablerhq.com" class="text-gray-400 hover:text-indigo-400 transition">NovaLedger - 究極のブロックチェーン技術</a></li>
+                        <li><a href="https://nexacore.enablerhq.com" class="text-gray-400 hover:text-blue-400 transition">NexaCore - AI統合型ブロックチェーン</a></li>
+                        <li><a href="https://optimachain.enablerhq.com" class="text-gray-400 hover:text-green-400 transition">OptimaChain - 高性能DEXプラットフォーム</a></li>
+                        <li><a href="https://neurachain.enablerhq.com" class="text-gray-400 hover:text-purple-400 transition">NeuraChain - AI駆動型ブロックチェーン</a></li>
+                        <li><a href="https://pulsechain.enablerhq.com" class="text-gray-400 hover:text-red-400 transition">PulseChain - 環境同期型ブロックチェーン</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">リソース</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-red-400 transition">ドキュメント</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-400 transition">チュートリアル</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-400 transition">APIリファレンス</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-400 transition">開発者ガイド</a></li>
+                        <li><a href="https://github.com/enablerdao/PulseChain" class="text-gray-400 hover:text-red-400 transition">GitHub</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">コミュニティ</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-red-400 transition">Twitter</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-400 transition">Discord</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-400 transition">Telegram</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-400 transition">YouTube</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-400 transition">ブログ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">会社情報</h3>
+                    <p class="text-gray-400 mb-4">株式会社イネブラ<br>〒100-0001<br>東京都千代田区1-1-1<br>イネブラビル</p>
+                    <p class="text-gray-400">お問い合わせ: <a href="mailto:info@enablerhq.com" class="text-red-400">info@enablerhq.com</a></p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 株式会社イネブラ. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/pulsechain.js"></script>
+</body>
+</html>

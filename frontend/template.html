@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PROJECT_NAME}} - 次世代ブロックチェーンプラットフォーム</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/{{PROJECT_ID}}.css">
+</head>
+<body class="bg-gray-900 text-white font-inter">
+    <!-- ヘッダー -->
+    <header class="bg-gray-800 shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="images/{{PROJECT_ID}}-logo.svg" alt="{{PROJECT_NAME}} Logo" class="h-10">
+                    <h1 class="ml-4 text-2xl font-bold">{{PROJECT_NAME}}</h1>
+                </div>
+                <nav>
+                    <ul class="flex space-x-6">
+                        <li><a href="#features" class="hover:text-{{PROJECT_COLOR}}-400 transition">特徴</a></li>
+                        <li><a href="#technology" class="hover:text-{{PROJECT_COLOR}}-400 transition">技術</a></li>
+                        <li><a href="#roadmap" class="hover:text-{{PROJECT_COLOR}}-400 transition">ロードマップ</a></li>
+                        <li><a href="#docs" class="hover:text-{{PROJECT_COLOR}}-400 transition">ドキュメント</a></li>
+                        <li><a href="#community" class="hover:text-{{PROJECT_COLOR}}-400 transition">コミュニティ</a></li>
+                    </ul>
+                </nav>
+                <div class="flex space-x-4">
+                    <select class="bg-gray-700 rounded px-2 py-1">
+                        <option value="ja">日本語</option>
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                        <option value="ko">한국어</option>
+                    </select>
+                    <a href="https://github.com/enablerdao/{{PROJECT_ID}}" class="bg-{{PROJECT_COLOR}}-600 hover:bg-{{PROJECT_COLOR}}-500 px-4 py-2 rounded transition">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="py-20 bg-gradient-to-br from-gray-800 to-gray-900">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-5xl font-bold mb-6">{{PROJECT_TAGLINE}}</h2>
+            <p class="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">{{PROJECT_DESCRIPTION}}</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#features" class="bg-{{PROJECT_COLOR}}-600 hover:bg-{{PROJECT_COLOR}}-500 px-6 py-3 rounded-lg font-medium transition">詳細を見る</a>
+                <a href="https://github.com/enablerdao/{{PROJECT_ID}}" class="bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-lg font-medium transition">GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特徴セクション -->
+    <section id="features" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-12 text-center">主な特徴</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {{FEATURES_CONTENT}}
+            </div>
+        </div>
+    </section>
+
+    <!-- 技術セクション -->
+    <section id="technology" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-12 text-center">技術詳細</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">{{TECH_TITLE_1}}</h3>
+                    <p class="text-gray-300 mb-6">{{TECH_DESCRIPTION_1}}</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">{{TECH_TITLE_2}}</h3>
+                    <p class="text-gray-300 mb-6">{{TECH_DESCRIPTION_2}}</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">{{TECH_TITLE_3}}</h3>
+                    <p class="text-gray-300 mb-6">{{TECH_DESCRIPTION_3}}</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">{{TECH_TITLE_4}}</h3>
+                    <p class="text-gray-300 mb-6">{{TECH_DESCRIPTION_4}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ロードマップセクション -->
+    <section id="roadmap" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-12 text-center">開発ロードマップ</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <!-- ロードマップの縦線 -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-{{PROJECT_COLOR}}-600"></div>
+                    
+                    <!-- ロードマップアイテム -->
+                    {{ROADMAP_CONTENT}}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ドキュメントセクション -->
+    <section id="docs" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-8">ドキュメント</h2>
+            <p class="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">{{PROJECT_NAME}}の詳細な技術ドキュメントを確認して、プラットフォームの可能性を探求してください。</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="bg-{{PROJECT_COLOR}}-600 hover:bg-{{PROJECT_COLOR}}-500 px-6 py-3 rounded-lg font-medium transition">技術ドキュメント</a>
+                <a href="#" class="bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-lg font-medium transition">開発者ガイド</a>
+                <a href="#" class="bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-lg font-medium transition">APIリファレンス</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- コミュニティセクション -->
+    <section id="community" class="py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-8">コミュニティに参加</h2>
+            <p class="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">{{PROJECT_NAME}}の成長するコミュニティに参加して、最新情報を入手し、開発に貢献しましょう。</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded-lg font-medium transition">Twitter</a>
+                <a href="#" class="bg-purple-600 hover:bg-purple-500 px-6 py-3 rounded-lg font-medium transition">Discord</a>
+                <a href="#" class="bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-lg font-medium transition">Telegram</a>
+                <a href="#" class="bg-red-600 hover:bg-red-500 px-6 py-3 rounded-lg font-medium transition">YouTube</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター（共通） -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">株式会社イネブラのブロックチェーンプロジェクト</h3>
+                    <ul class="space-y-2">
+                        <li><a href="https://novaledger.enablerhq.com" class="text-gray-400 hover:text-indigo-400 transition">NovaLedger - 究極のブロックチェーン技術</a></li>
+                        <li><a href="https://nexacore.enablerhq.com" class="text-gray-400 hover:text-blue-400 transition">NexaCore - AI統合型ブロックチェーン</a></li>
+                        <li><a href="https://optimachain.enablerhq.com" class="text-gray-400 hover:text-green-400 transition">OptimaChain - 高性能DEXプラットフォーム</a></li>
+                        <li><a href="https://neurachain.enablerhq.com" class="text-gray-400 hover:text-purple-400 transition">NeuraChain - AI駆動型ブロックチェーン</a></li>
+                        <li><a href="https://pulsechain.enablerhq.com" class="text-gray-400 hover:text-red-400 transition">PulseChain - 環境同期型ブロックチェーン</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">リソース</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-{{PROJECT_COLOR}}-400 transition">ドキュメント</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-{{PROJECT_COLOR}}-400 transition">チュートリアル</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-{{PROJECT_COLOR}}-400 transition">APIリファレンス</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-{{PROJECT_COLOR}}-400 transition">開発者ガイド</a></li>
+                        <li><a href="https://github.com/enablerdao/{{PROJECT_ID}}" class="text-gray-400 hover:text-{{PROJECT_COLOR}}-400 transition">GitHub</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">コミュニティ</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-{{PROJECT_COLOR}}-400 transition">Twitter</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-{{PROJECT_COLOR}}-400 transition">Discord</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-{{PROJECT_COLOR}}-400 transition">Telegram</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-{{PROJECT_COLOR}}-400 transition">YouTube</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-{{PROJECT_COLOR}}-400 transition">ブログ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">会社情報</h3>
+                    <p class="text-gray-400 mb-4">株式会社イネブラ<br>〒100-0001<br>東京都千代田区1-1-1<br>イネブラビル</p>
+                    <p class="text-gray-400">お問い合わせ: <a href="mailto:info@enablerhq.com" class="text-{{PROJECT_COLOR}}-400">info@enablerhq.com</a></p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 株式会社イネブラ. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/{{PROJECT_ID}}.js"></script>
+</body>
+</html>
