@@ -1,8 +1,8 @@
-# PulseChain
+# PulseChain: Real-time Blockchain Platform with Environmentally Synchronized PoH
 
 > **Development Status**: Implementation Stage | Core Features & Web Interface in Development | 28 Python Files | Last Updated: March 2025
 > 
-> PulseChain is in the implementation stage, with core blockchain functionality, environment-synchronized consensus, and zero-energy node optimization implemented. Web interface and API server are also under development.
+> PulseChain is in the implementation stage, with core blockchain functionality, environmentally synchronized PoH consensus, and heartbeat protocol implemented. Web interface and API server are also under development.
 
 **This project is an experimental blockchain project by [Enabler Inc.](https://enablerhq.com)**
 
@@ -17,7 +17,7 @@
                                                   
 ```
 
-PulseChain is a completely new layer-one blockchain that goes beyond the traditional trilemma (decentralization, scalability, security) to focus on real-time processing, environmental integration, and human-centric design. It redefines the concept of blockchain to build a sustainable and human-centered decentralized ecosystem.
+PulseChain is a next-generation blockchain platform centered around real-time processing and environmental data integration. Building on Solana's Proof of History (PoH) mechanism, it combines a unique "Environmentally Synchronized Consensus" with a "Heartbeat" mechanism in P2P networks to achieve ultra-fast consensus at the millisecond level. This innovative design addresses the latency issues of traditional blockchains while maintaining high attack resistance and scalability.
 
 ## Key Technical Features
 
